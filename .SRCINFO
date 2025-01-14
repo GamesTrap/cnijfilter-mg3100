@@ -1,7 +1,7 @@
 pkgbase = cnijfilter-mg3100
 	pkgdesc = Canon IJ Printer Driver (for MG3100 series)
 	pkgver = 3.60
-	pkgrel = 5
+	pkgrel = 6
 	url = http://support-au.canon.com.au/contents/AU/EN/0100392802.html
 	install = cnijfilter-mg3100.install
 	arch = i686
@@ -32,10 +32,12 @@ pkgbase = cnijfilter-mg3100
 	source = cups.patch
 	source = id.po.patch
 	source = libpng15.patch
+	source = cnijfilter-mg3100_3.60-5_build_fixes.patch
 	md5sums = 70e412331a21f4b573b4e901c89cee18
 	md5sums = 5f4b3523f6542f0a90886e7e6264f19a
 	md5sums = e406c2629159b9608c4552a5343471f0
 	md5sums = e228560529d46e1f03617ba7bc9aa657
 	md5sums = 0eb3e6f17c090b07490f4a5d01de49da
+	md5sums = 33ed8c06c09a6f02b6e88689a1cf7e3f
 
 pkgname = cnijfilter-mg3100

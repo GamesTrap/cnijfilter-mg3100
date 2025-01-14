@@ -6,9 +6,10 @@
 #			 Nopsty <michi@nicce.at>
 #			 Michael Unterkalmsteiner (mun) <miciu@gmx.de>
 #			 Giancarlo Bianchi <giancarlobianchi76@gmail.com>
+# Updated by Jan "GamesTrap" Schuerkamp @ 01/14/2025
 pkgname=cnijfilter-mg3100
 pkgver=3.60
-pkgrel=5
+pkgrel=6
 _pkgver=3.60-1
 pkgdesc="Canon IJ Printer Driver (for MG3100 series)"
 url="http://support-au.canon.com.au/contents/AU/EN/0100392802.html"
@@ -22,10 +23,11 @@ source=(http://gdlp01.c-wss.com/gds/8/0100003928/01/cnijfilter-source-${_pkgver}
 	'build-fixes.patch'
 	'cups.patch'
 	'id.po.patch'
-	'libpng15.patch')
+	'libpng15.patch'
+	'cnijfilter-mg3100_3.60-5_build_fixes.patch')
 
 package() {
-  if [ "$CARCH" == "x86_64" ]; then  
+  if [ "$CARCH" == "x86_64" ]; then
     libdir=libs_bin64
   else
     libdir=libs_bin32
@@ -36,6 +38,7 @@ package() {
   patch -p0 < cups.patch
   patch -p0 < id.po.patch
   patch -p0 < libpng15.patch
+  patch -p0 < cnijfilter-mg3100_3.60-5_build_fixes.patch
 
   ## Compile and install mg3100 stuff
   # ppd file
@@ -73,7 +76,7 @@ package() {
   make clean
   make
   make DESTDIR=${pkgdir} install
-  
+
   ## Compile and install common stuff
   # libs
   cd ${srcdir}/cnijfilter-source-${_pkgver}/libs
@@ -145,4 +148,5 @@ md5sums=('70e412331a21f4b573b4e901c89cee18'
          '5f4b3523f6542f0a90886e7e6264f19a'
          'e406c2629159b9608c4552a5343471f0'
          'e228560529d46e1f03617ba7bc9aa657'
-         '0eb3e6f17c090b07490f4a5d01de49da')
+         '0eb3e6f17c090b07490f4a5d01de49da'
+         '33ed8c06c09a6f02b6e88689a1cf7e3f')
